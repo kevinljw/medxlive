@@ -1,0 +1,109 @@
+extends layout
+
+block content
+
+  .row.jumbotron.jumbotronHome
+    .container.backColor
+      h1 MEDx LIVE
+      p.lead Leadership, Innovation, ValuE
+      p 打造台灣未來醫療科技CEO人才計劃
+  .container
+    .row.fourHeading
+      .navbar-collapse
+        ul#fourWe.nav.navbar-nav.nav-pills.nav-justified.default-color
+          li
+            a.dropdown-toggle(href='#', data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+              h4 WHAT we do
+            ul.dropdown-menu
+              //- .row
+              //-   .col-xs-12
+              //-     h4 Train and cultivate future executives for medtech startups.
+              li#fourWe-content
+                h4 Train and cultivate future executives for medtech startups.
+              
+                
+          li
+            a.dropdown-toggle(href='#', data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+              h4 WHO we are
+            ul.dropdown-menu
+              //- .row
+              //-   .col-xs-12
+              //-     h4 Train and cultivate future executives for medtech startups.
+              li#fourWe-content
+                h4 At MEDx LIVE Taipei, we focus on
+                  br
+                  ul
+                    li
+                      h4 Leadership
+                    li
+                      h4 Innovation
+                    li
+                      h4 Value
+              
+          li
+            a.dropdown-toggle(href='#', data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+              h4 WHY we do it
+            ul.dropdown-menu
+              //- .row
+              //-   .col-xs-12
+              //-     h4 Train and cultivate future executives for medtech startups.
+              li#fourWe-content
+                h4 The purpose of MEDx LIVE Taipei is to:
+                  br
+                  ul
+                    li
+                      h4 Provide a platform for entrepreneurs to network and exchange ideas
+                    li
+                      h4 Create opportunities for people to express their creativity
+              
+          li
+            a.dropdown-toggle(href='#', data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+              h4 HOW we do it
+            ul.dropdown-menu
+              //- .row
+              //-   .col-xs-12
+              //-     h4 Train and cultivate future executives for medtech startups.
+              li#fourWe-content
+                h4 We offer project-based executive training which encourages our fellows to refine their skills through learning-by-doing.         
+      
+    //- hr
+    .row
+      .col-sm-8
+        .page-header
+          h3 Announcements
+        each val in nArticles
+          .homeAnn.col-sm-12
+            .col-sm-6
+              h3 #{val.title}
+              p.homeAnnContent #{val.content}
+              .homeSubTag 
+                i.fa.fa-user  #{val.author}
+              .homeSubTag
+                i.fa.fa-clock-o  #{val.timestamp}
+              p 
+                a.btn.btn-default(href='announcements/\##{val.timestamp}', role='button') View details » 
+              p  
+
+            .col-sm-offset-1.col-sm-5
+              if val.picture
+                a(href='announcements/\##{val.timestamp}').hollowPic(style='background: url(\'#{val.picture}\') no-repeat;background-size: auto 100%; background-position: 30% 0; border-radius: 5px;')
+                //- img(src='#{val.picture}', height='200px')
+              //- else
+                //- .hollowPic 
+          .col-sm-12
+            hr
+        
+      .col-sm-4
+        .page-header
+          h3 Sharing
+        each val in nShares
+          .homeSha
+            h4 #{val.title}
+            p #{val.description}
+            .homeSubTag 
+              i.fa.fa-user  #{val.upload_user}
+            .homeSubTag
+              i.fa.fa-clock-o  #{val.timestamp}
+            p 
+              a.btn.btn-default(href='sharing/#{val.type}/\##{val.timestamp}', role='button') View details »
+            hr
